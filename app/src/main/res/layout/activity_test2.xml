@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="真相只有一个真相只有
+                真相只有一个真相只有一个真相只有一个
+                真相只有一个真相只有一个真相只有一个真相只有一个
+                真相只有一个真相只有一个
+                一个真相只有一个"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00ff"
+                app:layout_scrollFlags="scroll|enterAlways"
+                />
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="#10c6db"
+                app:tabIndicatorHeight="2dp"
+                app:tabMinWidth="100dp"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="#10c6db"
+                app:tabTextColor="#969696"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#fff"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            />
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

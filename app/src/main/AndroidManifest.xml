@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.myapplication">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--外部存储读权限，调试工具加载本地补丁需要-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name=".base.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24688942-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="2c399fc68c427e54212b15a4f56cb51b" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCH67tcjBYUianTpnfMDA3nTAVrxl7pmoCflt5JcMyTNpEyYn1wit+aUhYS6oNMqYCAD9pxA6D8M9PLKb7Hj63HfJzP4oSawV972Qu8cU5N9DbyFObdCl4QelaraOL0/akFmmJcF/jh7XuhttTbg8G4Aby3v5FfLuWyuXG1ERXzgfLTuQDx3ij4JHPfgaKEdh62+IM01UnCw/PL3mHQNpICxqntSF8mEpygCYMdfKmwMLpWb3V7kwEPLEdzSioeQzsZHrt9rh5pPrrcuBkN/8N+lAG3NBAcW47q0ZUNW+2uB3ixvn4FyeSS84/dvJSjc8WCsaIRD4SQa6drLsXs2XF9AgMBAAECggEAJHj7M+BbZHN0YNkAuH5blL9vjPYULfdJoIlpaKeeHbq8x5pqMrLxQYXZaoYHaaDqXHLkmQLyRfraUGAJU5+YcDleEuKj1qshJiid35k/++cWf2tgb9wCVcWeUCy7CiavHlPJJRFBtc52KHTZNXZrmybMLzp2leYNuSHOA1psW4UUUMLEfxwqyLBGycKHTp9fIOPC20wQE3yQolwEDujLu4LaifW1kvOtoryN/XndjVFAl16E2tgClefIA4EfvNozsQ789YAGdLR1NX73TOxi8ekfuajh0QHH3RIj8dShGVk8oqiKlFNeJ4gnfKTECx0r/2RvC1D/e2J3WmZJhx6P+QKBgQDVcA3BEUaJaXSZX9IsTKAzY84EyPHons1M0J7Xmhvui5goBbYBJT2PD43rhAgE5Vo5EIoTwvTO/o6jb0WsrJUKB3Cr1+93su6nX76PtkYRGZBzJ7svwXWNeMNaNlikCobLSUWc+c0EM5QDtka/3RJkEWviaT1JKdZ1fL9g6kFGKwKBgQCjBnWECP4xlMGe5tizbaDn+RL5LhhCfWvzetELwWcGRjQJ04mjx7E0e94EKlRP6FkNxLrXwkVvYV90R23dZ4U/1zV/4ARK7xnd8rWhgktxnIiOJDUE5RRmmsHKZttqveAGs9TVGPG/decs0rSexSPRO3af9DdGfNOiTJDvXms69wKBgDi1tiHXOjumdmGOESTOEz60RPgGgCgDkZ7YS2wTuVovYvU3Vz2ErI+HXXj3Mr5CRi+lUlqf0TXycum/1e5kSJFKmsg97pWKSFjWWqaKkqFWfofqRZURvO8i6BzfFbw4Q8pdpI5p3OxB3BEEbFXsIkfOTTDyL2NyJ1Y+GAdjFobTAoGAQQJUXmCPrQna5Bi+FV8EKT0DueYNuoX1RFSXhA6NnMzl930ph+wb2AgFErgmgu7uhDUNJPjNY4r6242YXA/p7PlO1j1ouND8Cau9jjg9CYMYWUZK9ja7mebgnGvD15779PBFUOzvih/kHdWwPRf0Hn2N4l8qo6snYbMSoMGQFSUCgYEAokTwt38v5wqZzkS5CJip5jhaT0r45wmWpX9qzy9Mm4ruWiqsftXaRMZ9V3uOc64hfvSyp3KUWiBBESAMsyDMKrFqawS0af5NDtc9J0vDvxs5Ii7Pz61YjAXtEhLkCPpWsnFrd3XlNJw7zqdssXaWCh+AxlBRUuLbFVTisqvvbNs=" />
+
+        <activity android:name=".activity.MaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.Test1Activity"/>
+        <activity android:name=".activity.Test2Activity"/>
+        <activity android:name=".activity.Test3Activity"/>
+        <activity android:name=".activity.Test4Activity"/>
+        <activity android:name=".activity.Test5Activity"/>
+        <activity android:name=".activity.Test6Activity"/>
+        <activity android:name=".activity.Test7Activity"/>
+        <activity android:name=".activity.Test8Activity"/>
+        <activity android:name=".activity.Test9Activity"/>
+        <activity android:name=".activity.Test10Activity"/>
+        <activity
+            android:name=".activity.Test11Activity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"/>
+        <activity android:name=".activity.Test12Activity"/>
+        <activity android:name=".activity.Test13Activity"/>
+        <activity android:name=".activity.Test14Activity"/>
+
+    </application>
+
+</manifest>

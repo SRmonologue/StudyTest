@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+    <com.example.myapplication.widget.IndexBar
+        android:id="@+id/index_bar"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/toolbar"
+        android:background="@color/transparent"
+        >
+
+        <com.example.myapplication.widget.SideBar
+            android:id="@+id/side_bar"
+            android:layout_width="30dp"
+            android:layout_height="match_parent" />
+    </com.example.myapplication.widget.IndexBar>
+
+</RelativeLayout>
