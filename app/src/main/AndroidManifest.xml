@@ -54,6 +54,7 @@
         <activity android:name=".activity.Test14Activity"/>
 
         <service android:name=".service.MyIntentService"/>
+        <service android:name=".service.MessagerService"/>
 
     </application>
 
