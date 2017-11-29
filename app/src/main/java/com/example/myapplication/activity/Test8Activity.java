@@ -1,10 +1,14 @@
 package com.example.myapplication.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.myapplication.R;
+import com.example.myapplication.service.MyIntentService;
 
 
 /**
@@ -21,7 +25,15 @@ public class Test8Activity extends AppCompatActivity {
     }
 
     private void initView() {
-
+        Button button = (Button) findViewById(R.id.btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Test8Activity.this, MyIntentService.class);
+                intent.putExtra("start", "haha");
+                startService(intent);
+            }
+        });
     }
 
 }

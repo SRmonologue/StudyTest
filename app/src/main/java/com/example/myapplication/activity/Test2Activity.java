@@ -4,12 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.example.myapplication.fragment.BaikeFragment;
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.TabLayoutAdapter;
+import com.example.myapplication.fragment.BaikeFragment;
 import com.example.myapplication.fragment.wenkuFragment;
 import com.example.myapplication.fragment.zhilunFragment;
 
@@ -19,7 +18,7 @@ import static android.support.design.widget.TabLayout.MODE_FIXED;
  * Created by gz on 2017/6/16.
  */
 
-public class Test2Activity extends AppCompatActivity {
+public class Test2Activity extends SwipeBackActivity {
 
     private TabLayout mTabLayout;
     private Toolbar mToolbar;

@@ -53,6 +53,8 @@
         <activity android:name=".activity.Test13Activity"/>
         <activity android:name=".activity.Test14Activity"/>
 
+        <service android:name=".service.MyIntentService"/>
+
     </application>
 
 </manifest>
