@@ -52,6 +52,7 @@
         <activity android:name=".activity.Test12Activity"/>
         <activity android:name=".activity.Test13Activity"/>
         <activity android:name=".activity.Test14Activity"/>
+        <activity android:name=".activity.Test15Activity"/>
 
         <service android:name=".service.MyIntentService"/>
         <service android:name=".service.MessagerService"/>

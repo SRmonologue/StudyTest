@@ -61,7 +61,7 @@ public class CusView extends View {
         mCenterPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCenterPaint.setDither(true);
         mCenterPaint.setStyle(Paint.Style.FILL);
-        mCenterPaint.setColor(getResources().getColor(R.color.main_color));
+        mCenterPaint.setColor(getResources().getColor(R.color.colorPrimary));
     }
 
     @Override
