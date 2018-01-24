@@ -50,7 +50,7 @@ public class SwipeBackLayout extends FrameLayout {
 	public SwipeBackLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 
-		//触发移动事件的最小距离
+		// 触发移动事件的最小距离
 		mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
 		mScroller = new Scroller(context);
 
@@ -83,7 +83,7 @@ public class SwipeBackLayout extends FrameLayout {
 	 */
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		//处理ViewPager冲突问题
+		// 处理ViewPager冲突问题
 		ViewPager mViewPager = getTouchViewPager(mViewPagers, ev);
 		Log.i(TAG, "mViewPager = " + mViewPager);
 		

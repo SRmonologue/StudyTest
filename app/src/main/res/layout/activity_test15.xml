@@ -2,55 +2,121 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/bottom_sheet_dialog_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="2222222"
-            android:textAllCaps="false"/>
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:orientation="vertical"
         app:behavior_peekHeight="50dp"
         app:layout_behavior="@string/bottom_sheet_behavior">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview"
+        <ImageView
+            android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#9900ff">
-        </android.support.v7.widget.RecyclerView>
+            android:background="#ff00ff"
+            android:src="@mipmap/ic_launcher"/>
 
-    </RelativeLayout>
+        <com.haibin.calendarview.CalendarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:orientation="vertical">
 
+            <com.haibin.calendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                app:calendar_card_view="com.example.myapplication.widget.IndexCalendarCardView"
+                app:current_month_lunar_text_color="#CFCFCF"
+                app:current_month_text_color="#333333"
+                app:day_text_size="18sp"
+                app:min_year="2004"
+                app:other_month_text_color="#e1e1e1"
+                app:scheme_text="假"
+                app:scheme_text_color="#333"
+                app:scheme_theme_color="#128c4b"
+                app:selected_lunar_text_color="#CFCFCF"
+                app:selected_text_color="#fff"
+                app:selected_theme_color="#108cd4"
+                app:week_background="#fff"
+                app:week_text_color="#111"/>
 
-    <!--<ImageView-->
-        <!--android:id="@+id/fab"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="0dp"-->
-        <!--android:src="@mipmap/ic_launcher"-->
-        <!--app:borderWidth="0dp"-->
-        <!--app:elevation="5dp"-->
-        <!--app:layout_anchor="@id/bottom_sheet"-->
-        <!--app:layout_anchorGravity="top|center"-->
-        <!--app:pressedTranslationZ="10dp"-->
-        <!--app:rippleColor="#ff00ff"/>-->
+        </com.haibin.calendarview.CalendarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/iv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    android:id="@+id/tv_1"
+                    android:layout_toRightOf="@id/iv1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="上班了"/>
+
+                <TextView
+                    android:id="@+id/time1"
+                    android:layout_toRightOf="@id/iv1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_1"
+                    android:text="时间"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/iv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    android:id="@+id/tv_2"
+                    android:layout_toRightOf="@id/iv2"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="上班了"/>
+
+                <TextView
+                    android:id="@+id/time2"
+                    android:layout_toRightOf="@id/iv2"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_2"
+                    android:text="时间"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.example.myapplication.R;
@@ -18,7 +19,7 @@ import static android.support.design.widget.TabLayout.MODE_FIXED;
  * Created by gz on 2017/6/16.
  */
 
-public class Test2Activity extends SwipeBackActivity {
+public class Test2Activity extends AppCompatActivity {
 
     private TabLayout mTabLayout;
     private Toolbar mToolbar;
