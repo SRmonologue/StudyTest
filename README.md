@@ -13,5 +13,3 @@
 12. 动画/RxJava创建操作符
 13. RxJava变换操作符
 14. RxJava组合/合并操作符
-啦啦啦
-<data>ddd的</data>

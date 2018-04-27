@@ -66,8 +66,8 @@ public class Test14Activity extends AppCompatActivity {
          *二者区别：组合被观察者的数量，即merge（）组合被观察者数量≤4个，而mergeArray（）则可＞4个
          *区别上述concat（）操作符：同样是组合多个被观察者一起发送数据，但concat（）操作符合并后是按发送顺序串行执行
          */
-        Observable.merge(Observable.intervalRange(0,3,1,1, TimeUnit.SECONDS),
-                Observable.intervalRange(1,3,1,1,TimeUnit.SECONDS))
+        Observable.merge(Observable.intervalRange(0, 3, 1, 1, TimeUnit.SECONDS),
+                Observable.intervalRange(1, 3, 1, 1, TimeUnit.SECONDS))
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {
@@ -97,9 +97,10 @@ public class Test14Activity extends AppCompatActivity {
                     public void onSubscribe(Disposable d) {
 
                     }
+
                     @Override
                     public void onNext(Integer value) {
-                        Log.d(TAG, "接收到了事件"+ value  );
+                        Log.d(TAG, "接收到了事件" + value);
                     }
 
                     @Override
@@ -112,6 +113,6 @@ public class Test14Activity extends AppCompatActivity {
                         Log.d(TAG, "对Complete事件作出响应");
                     }
                 });
-
     }
+
 }

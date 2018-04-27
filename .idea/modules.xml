@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D:\Babyun\StudyTest\MyApplication.iml" filepath="D:\Babyun\StudyTest\MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/StudyTest.iml" filepath="$PROJECT_DIR$/StudyTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
     </modules>
   </component>
 </project>

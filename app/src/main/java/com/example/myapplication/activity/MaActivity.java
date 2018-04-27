@@ -31,6 +31,7 @@ public class MaActivity extends AppCompatActivity {
     private Button mBtn13;
     private Button mBtn14;
     private Button mBtn15;
+    private Button mBtn16;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class MaActivity extends AppCompatActivity {
         mBtn13 = (Button) findViewById(R.id.btn13);
         mBtn14 = (Button) findViewById(R.id.btn14);
         mBtn15 = (Button) findViewById(R.id.btn15);
+        mBtn16 = (Button) findViewById(R.id.btn16);
         init();
     }
 
@@ -160,6 +162,13 @@ public class MaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MaActivity.this, Test15Activity.class));
+            }
+        });
+
+        mBtn16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MaActivity.this, Test16Activity.class));
             }
         });
     }

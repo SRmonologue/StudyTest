@@ -1,24 +1,23 @@
 package com.example.myapplication.activity;
 
 import android.annotation.TargetApi;
-import android.content.pm.ActivityInfo;
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.ViewCompat;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Transition;
-import android.view.View;
-import android.widget.ImageView;
+import android.util.Log;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.myapplication.R;
-import com.example.myapplication.widget.SampleVideo;
-import com.example.myapplication.widget.SwitchVideoModel;
-import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
-import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.ref.WeakReference;
 
 
 /**
@@ -28,185 +27,121 @@ import java.util.List;
 
 public class Test10Activity extends AppCompatActivity {
 
-    public final static String IMG_TRANSITION = "IMG_TRANSITION";
-    public final static String TRANSITION = "TRANSITION";
 
-    OrientationUtils orientationUtils;
-
-    private boolean isTransition;
-
-    private Transition transition;
-    private SampleVideo videoPlayer;
+    private WebView mWebView;
+    private FHandle mFHandle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test10);
-        videoPlayer = (SampleVideo) findViewById(R.id.video_player);
-        isTransition = getIntent().getBooleanExtra(TRANSITION, false);
-        init();
-    }
+        mWebView = (WebView) findViewById(R.id.webview);
 
-    private void init() {
-        String url = "http://baobab.wdjcdn.com/14564977406580.mp4";
+        mWebView.getSettings().setJavaScriptEnabled(true);
 
-        //String url = "http://7xse1z.com1.z0.glb.clouddn.com/1491813192";
-        //需要路径的
-        //videoPlayer.setUp(url, true, new File(FileUtils.getPath()), "");
+        mWebView.loadUrl("http://ip.cn/");
 
-        //借用了jjdxm_ijkplayer的URL
-        String source1 = "http://os4skw475.bkt.clouddn.com/ad0752fd3ed316ce332c629913726439.mp4";
-        String name = "普通";
-        SwitchVideoModel switchVideoModel = new SwitchVideoModel(name, source1);
+        mWebView.setWebViewClient(new WebViewClient() {
 
-        String source2 = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f30.mp4";
-        String name2 = "清晰";
-        SwitchVideoModel switchVideoModel2 = new SwitchVideoModel(name2, source2);
-
-        List<SwitchVideoModel> list = new ArrayList<>();
-        list.add(switchVideoModel);
-        list.add(switchVideoModel2);
-
-        videoPlayer.setUp(list, true, "");
-
-        //增加封面
-        ImageView imageView = new ImageView(this);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        // imageView.setImageResource(R.mipmap.xxx1);
-        videoPlayer.setThumbImageView(imageView);
-
-        //增加title
-        videoPlayer.getTitleTextView().setVisibility(View.VISIBLE);
-        videoPlayer.getTitleTextView().setText("测试视频");
-        //videoPlayer.setShowPauseCover(false);
-
-        //videoPlayer.setSpeed(2f);
-
-        //设置返回键
-        videoPlayer.getBackButton().setVisibility(View.VISIBLE);
-
-        //设置旋转
-        orientationUtils = new OrientationUtils(this, videoPlayer);
-
-        //设置全屏按键功能,这是使用的是选择屏幕，而不是全屏
-        videoPlayer.getFullscreenButton().setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                orientationUtils.resolveByClick();
+            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+                if (url.contains("logo.gif")) {
+                    InputStream mIs = null;
+
+                    try {
+                        mIs = getApplicationContext().getAssets().open("images/error.png");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    WebResourceResponse response = new WebResourceResponse("image/png", "utf-8", mIs);
+                    return response;
+                }
+                return super.shouldInterceptRequest(view, url);
+            }
+
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                if (request.getUrl().toString().contains("logo.gif")) {
+                    InputStream mIs = null;
+
+                    try {
+                        mIs = getApplicationContext().getAssets().open("images/error.png");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    WebResourceResponse response = new WebResourceResponse("image/png", "utf-8", mIs);
+                    return response;
+                }
+                return super.shouldInterceptRequest(view, request);
             }
         });
 
-        //videoPlayer.setBottomProgressBarDrawable(getResources().getDrawable(R.drawable.video_new_progress));
-        //videoPlayer.setDialogVolumeProgressBar(getResources().getDrawable(R.drawable.video_new_volume_progress_bg));
-        //videoPlayer.setDialogProgressBar(getResources().getDrawable(R.drawable.video_new_progress));
-        //videoPlayer.setBottomShowProgressBarDrawable(getResources().getDrawable(R.drawable.video_new_seekbar_progress),
-        //getResources().getDrawable(R.drawable.video_new_seekbar_thumb));
-        //videoPlayer.setDialogProgressColor(getResources().getColor(R.color.colorAccent), -11);
+        mFHandle = new FHandle(this);
 
-        //是否可以滑动调整
-        videoPlayer.setIsTouchWiget(true);
-
-        //设置返回按键功能
-        videoPlayer.getBackButton().setOnClickListener(new View.OnClickListener() {
+        new Thread() {
             @Override
-            public void onClick(View v) {
-                onBackPressed();
+            public void run() {
+                super.run();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                Message msg = Message.obtain();
+                msg.what = 1;
+                msg.obj = "AA";
+                mFHandle.sendMessage(msg);
             }
-        });
+        }.start();
 
-        //过渡动画
-        initTransition();
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Message msg = new Message();
+                msg.what = 2;
+                msg.obj = "BB";
+                mFHandle.sendMessage(msg);
+            }
+        }.start();
     }
 
+    private static class FHandle extends Handler {
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        videoPlayer.onVideoPause();
+        private WeakReference<Activity> mReference;
+
+        public FHandle(Activity activity) {
+            mReference = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    Log.d("gz", "收到现成1的消息");
+                    break;
+                case 2:
+                    Log.d("gz", "收到线程2的消息");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (orientationUtils != null)
-            orientationUtils.releaseListener();
+        mFHandle.removeCallbacksAndMessages(null);
     }
-
-    @Override
-    public void onBackPressed() {
-        //先返回正常状态
-        if (orientationUtils.getScreenType() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
-            videoPlayer.getFullscreenButton().performClick();
-            return;
-        }
-        //释放所有
-        videoPlayer.setStandardVideoAllCallBack(null);
-        GSYVideoPlayer.releaseAllVideos();
-        if (isTransition && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            super.onBackPressed();
-        } else {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    finish();
-                    overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
-                }
-            }, 500);
-        }
-    }
-
-
-    private void initTransition() {
-        if (isTransition && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            postponeEnterTransition();
-            ViewCompat.setTransitionName(videoPlayer, IMG_TRANSITION);
-            addTransitionListener();
-            startPostponedEnterTransition();
-        } else {
-            videoPlayer.startPlayLogic();
-        }
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private boolean addTransitionListener() {
-        transition = getWindow().getSharedElementEnterTransition();
-        if (transition != null) {
-            transition.addListener(new Transition.TransitionListener() {
-                @Override
-                public void onTransitionStart(Transition transition) {
-
-                }
-
-                @Override
-                public void onTransitionEnd(Transition transition) {
-                    videoPlayer.startPlayLogic();
-                    transition.removeListener(this);
-                }
-
-                @Override
-                public void onTransitionCancel(Transition transition) {
-
-                }
-
-                @Override
-                public void onTransitionPause(Transition transition) {
-
-                }
-
-                @Override
-                public void onTransitionResume(Transition transition) {
-
-                }
-            });
-            return true;
-        }
-        return false;
-    }
-
 }

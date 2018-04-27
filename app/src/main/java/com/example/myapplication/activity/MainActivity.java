@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
         initializeView();
         refreshView();
         installListener();
+       android.os.Process.killProcess(android.os.Process.myPid());
     }
+
 
     private void initializeView() {
         setContentView(R.layout.activity_main);
