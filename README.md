@@ -1,5 +1,5 @@
 # StudyTest
-:bug:
+# dfdfdfdfdfd:bug:
 1. 锚点demo
 2. 协调布局
 3. 家长端首页demo
