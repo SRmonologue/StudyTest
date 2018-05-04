@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/broadcastreceiver/broadcastreceiver.iml" filepath="$PROJECT_DIR$/broadcastreceiver/broadcastreceiver.iml" />
       <module fileurl="file://$PROJECT_DIR$/huituban/huituban.iml" filepath="$PROJECT_DIR$/huituban/huituban.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reflectannotationgenerics/reflectannotationgenerics.iml" filepath="$PROJECT_DIR$/reflectannotationgenerics/reflectannotationgenerics.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
     </modules>
   </component>
