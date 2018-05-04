@@ -2,7 +2,6 @@ package com.wangban.huituban;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,14 +9,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                for (int i = 0; i < 20; i++) {
-                    System.out.println(i);
-                    throw new NullPointerException();
-                }
-            }
-        });
+        try {
+            //PathClassLoader用于加载已经安装的apk中的资源，比如dex
+            Class clazz = Class.forName("com.wangban.huituban.huituban");
+            ClassLoader classLoader = clazz.getClassLoader();
+            System.out.println("-----> classLoader=" + classLoader);
+
+            //BootClassLoader用于加载系统层级的类
+            Class<?> aClass = Class.forName("java.lang.String");
+            ClassLoader classLoader1 = aClass.getClassLoader();
+            System.out.println("----> classLoader=" + classLoader1);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

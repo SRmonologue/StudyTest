@@ -1,1 +1,1 @@
-include ':app', ':service', ':broadcastreceiver', ':huituban'
+include ':app', ':service', ':broadcastreceiver', ':huituban', ':reflectannotationgenerics'
